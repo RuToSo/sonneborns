@@ -22,17 +22,6 @@
       pruefen();
     }
 
-    // E-Mail erst im Browser zusammensetzen (Schutz vor Spam-Bots)
-    document.querySelectorAll('[data-mail]').forEach(function (el) {
-      var teile = el.getAttribute('data-mail').split('|');
-      var adresse = teile[0] + '@' + teile[1];
-      var a = document.createElement('a');
-      a.href = 'mailto:' + adresse;
-      a.textContent = adresse;
-      if (el.classList.contains('mit-symbol')) a.prepend(el.querySelector('svg'));
-      el.replaceChildren(a);
-    });
-
     // Großansicht für Bilder
     var kasten = document.querySelector('.leuchtkasten');
     if (kasten && typeof kasten.showModal === 'function') {
